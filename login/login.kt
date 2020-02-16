@@ -1,6 +1,3 @@
-/**
-* A Login Form Example in Kotlin Android
-*/
 class LoginActivity : AppCompatActivity() {
 
    override fun onCreate(savedInstanceState: Bundle?) {
