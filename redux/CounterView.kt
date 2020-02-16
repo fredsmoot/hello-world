@@ -2,6 +2,8 @@ class CounterView(context: Context, attr: AttributeSet) : LinearLayout(context, 
     @Inject lateinit var eventHandler: CounterViewEventHandler
     @Inject lateinit var store: Store<AppState, Any>
     private val toolbar: Toolbar by bindView(R.id.toolbar)
+    private val countView: EditText by bindView(R.id.count)
+    
     val compSub = CompositeSubscription()
 
     init {
@@ -24,7 +26,12 @@ data class CounterViewModel(val count: Int) {
 fun toCounterViewModel(state: AppState) = CounterViewModel(
   count = state.counterAppState.count.toString()
 )
+    
+@OnClick fun onClickIncrement(){
+    eventHandler.incrementTapped()
+}
 
 fun render(model: CounterStateModel) {
   countView.text = model.count
+}
 }
