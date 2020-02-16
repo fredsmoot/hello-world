@@ -8,7 +8,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
  
- // Add LoginScreenState to top-level AppState so when action is dispatched is can call its reducer
+ // Add LoginScreenState to top-level AppState so we can have access to modifying its state.
  data class AppState(
   val coreAppState: CoreAppState = CoreAppState(navigation = initialNavigationState),
   val loginScreenState = LoginScreenState: LoginScreenState()
