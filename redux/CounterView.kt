@@ -1,3 +1,17 @@
+class CounterView(context: Context, attr: AttributeSet) : LinearLayout(context, attr) {
+    @Inject lateinit var eventHandler: CounterViewEventHandler
+    @Inject lateinit var store: Store<AppState, Any>
+    private val toolbar: Toolbar by bindView(R.id.toolbar)
+    val compSub = CompositeSubscription()
+
+    init {
+        diComponent.inject(this)
+    }
+
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+    }
+ 
 // Holds the state
 data class CounterViewModel(val count: Int) {
   override toString(): String {
